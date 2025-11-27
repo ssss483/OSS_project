@@ -1,5 +1,5 @@
-def masking(word_lint, sentence):
+def masking(word_list, sentence):
     for w in word_list:
-        sentence = sentence.replace(w. "[MASK]")
+        sentence=sentence.replace(w, "[MASK]")
     return sentence
 
