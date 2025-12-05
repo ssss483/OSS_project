@@ -3,3 +3,4 @@ def masking(word_list, sentence):
         sentence = sentence.replace(w, "[MASK]")
     return sentence
 
+
