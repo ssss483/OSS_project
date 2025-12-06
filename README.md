@@ -23,4 +23,3 @@ Repeated Word Corrector with Huggingface
 
 ## 참고자료
 [파이썬으로 간단한 단어 빈도수 분석기 만들기-네이버 블로그](https://m.blog.naver.com/gothevole/223714911712)
-

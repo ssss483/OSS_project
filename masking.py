@@ -1,5 +1,7 @@
-def masking(word_lint, sentence):
-    for w in word_list:
-        sentence = sentence.replace(w. "[MASK]")
-    return sentence
+# module4.py
+import re
 
+def masking(word_list, sentence):
+    for w in word_list:
+        sentence = re.sub(rf"\b{re.escape(w)}\b", "[MASK]", sentence)
+    return sentence
