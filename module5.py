@@ -1,12 +1,12 @@
-from transformers import pipeline
-
-fill_mask = pipeline(
-    "fill-mask",
-    model = "klue/roberta-base"
-)
+# module 5 
+# replace <mask> to tokens with KLUE RoBERTa predictions.
 
 
-result = fill_mask("오늘은 날씨가 정말 <mask>다")
+  def apply_fill_mask(masked_sentence):
+    predictions = fill_mask(masked_sentence)
+    best = predictions[0]["token_str"].strip() # Extracts the top predicted token and removes extra whitespace.
 
-for r in result:
-    print(r)
+    return masked_sentence.replace("<mask>", best, 1) 
+
+
+# in main," completed_sentence = apply_fill_mask(masked_sentence) " received like this.
