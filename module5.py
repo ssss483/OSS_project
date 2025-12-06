@@ -10,4 +10,3 @@
 
 
 # in main," completed_sentence = apply_fill_mask(masked_sentence) " received like this.
-
