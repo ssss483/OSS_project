@@ -1,12 +1,32 @@
-# module 5 
-# replace <mask> to tokens with KLUE RoBERTa predictions.
+# module 5
+from transformers import pipeline
 
+fill_mask = pipeline(
+    "fill-mask",
+    model="klue/roberta-base",
+    tokenizer="klue/roberta-base"
+)
 
-  def apply_fill_mask(masked_sentence):
-    predictions = fill_mask(masked_sentence)
-    best = predictions[0]["token_str"].strip() # Extracts the top predicted token and removes extra whitespace.
+def apply_fill_mask(masked_sentence):
+    sentence = masked_sentence
 
-    return masked_sentence.replace("<mask>", best, 1) 
+    while "[MASK]" in sentence:
 
+        preds = fill_mask(sentence)
 
-# in main," completed_sentence = apply_fill_mask(masked_sentence) " received like this.
+        # CASE 1: preds = [ {dict}, {dict}, ... ]
+        if isinstance(preds[0], dict):
+            best_token = preds[0]["token_str"].strip()
+
+        # CASE 2: preds = [ [ {dict}, {dict}, ... ] ]
+        elif isinstance(preds[0], list) and isinstance(preds[0][0], dict):
+            best_token = preds[0][0]["token_str"].strip()
+
+        else:
+            # 예측 불가능한 구조 → MASK 제거
+            best_token = ""
+
+        # 첫 번째 MASK만 치환
+        sentence = sentence.replace("[MASK]", best_token, 1)
+
+    return sentence
