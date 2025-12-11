@@ -2,8 +2,8 @@
 
 from module1 import calc_word_frequency
 from module2 import get_top3_words
-from module3 import filter_words
-from module4 import masking
+from oss_module3 import filter_words
+from masking import masking
 from module5 import apply_fill_mask
 
 WORD_LIST = []
@@ -33,7 +33,8 @@ def main():
     WORD_LIST = get_top3_words(freq)
     print("\n상위 단어 리스트(전역):", WORD_LIST)
 
-    WORD_LIST = filter_words(WORD_LIST)
+    # ❗ filter_words는 리스트를 직접 수정하므로 대입 금지
+    filter_words(WORD_LIST)
     print("선택된 단어 리스트(전역):", WORD_LIST)
 
     print("\n마스킹할 문장을 입력하세요.")
@@ -51,4 +52,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
