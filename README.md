@@ -8,7 +8,7 @@ Repeated Word Corrector with Huggingface
 
 >>이를 통해 사용자는 자신의 글쓰기 습관을 점검하고, 보다 풍부하고 세련된 가독성 있는 글을 완성할 수 있다.
 
-## 데모나 예시를 보여주는 이미지/영상
+## 실행 방법 및 예시 이미지(데모 화면)
 ### 1. 분석할 문장을 입력한다.
    
 <img width="1100" height="150" alt="image" src="https://github.com/user-attachments/assets/ebfb3232-e863-4da9-b963-0876aa299968" />
@@ -49,13 +49,10 @@ Repeated Word Corrector with Huggingface
 
 ## 사용한 패키지와 그 version(install 이 필요한 경우 안내)
 1. python(3.13.9)
-2. Hugging Face Transformers -install 필요
+2. Hugging Face transformers(4.57.1)  -install 필요
    (아나콘다(미니콘다)설치 --> pip install transformers datasets evaluate accelerate)
-3. PyTorch(2.9.1)- install 필요
+3. PyTorch(2.9.1)  - install 필요
    (아나콘다(미니콘다)설치 --> pip install torch)
-
-## 실행 방법
-
 
 ## 참고자료
 [파이썬으로 간단한 단어 빈도수 분석기 만들기-네이버 블로그](https://m.blog.naver.com/gothevole/223714911712)
